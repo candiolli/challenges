@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.util.stream.Stream;
 
-class Main {
+class FindIntersection {
 
     public static String findIntersection(String[] strArr) {
         String[] array1 = strArr[0].split(",");
