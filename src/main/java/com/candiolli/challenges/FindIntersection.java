@@ -1,8 +1,8 @@
-import java.util.*; 
-import java.io.*;
+package com.candiolli.challenges;
+
 import java.util.stream.Stream;
 
-class FindIntersection {
+public class FindIntersection {
 
     public static String findIntersection(String[] strArr) {
         String[] array1 = strArr[0].split(",");
@@ -19,7 +19,6 @@ class FindIntersection {
    
         return sb.toString().substring(0, sb.length()-1);
     }
-
 
     public static void main (String[] args) {
 //		Scanner s = new Scanner(System.in);
