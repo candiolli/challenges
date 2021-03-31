@@ -2,15 +2,6 @@ package com.candiolli.challenges;
 
 import java.util.Scanner;
 
-class Node {
-    int key;
-    Node left = null, right = null;
-
-    Node(int key) {
-        this.key = key;
-    }
-}
-
 class LevelOrderTraversalBinaryTree {
 
     public static boolean printLevel(Node root, int level) {
