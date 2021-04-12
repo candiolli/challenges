@@ -1,37 +1,30 @@
 package com.candiolli.challenges;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 public class WordMachine {
 
-    public static void main(String[] args) {
-//        System.out.println(solution("4 5 6 - 7 +"));
-//        System.out.println(solution("13 DUP 4 POP 5 DUP + DUP + -"));
-        System.out.println(solution("5 6 + -"));
-    }
-
     public static int solution(String S) {
-        List<Integer> stack = new ArrayList();
+        LinkedList<Integer> stack = new LinkedList();
         String[] op = S.split(" ");
         for (int i = 0; i < op.length; i++) {
             String operation = op[i];
             try {
                 switch (operation) {
                     case "POP":
-                        removeTopmost(stack);
+                        stack.removeLast();
                         break;
                     case "DUP":
-                        duplicateTopmost(stack);
+                        stack.add(stack.peekLast());
                         break;
                     case "+":
-                        sumTopmost(stack);
+                        sumTopOfMost(stack);
                         break;
                     case "-":
                         subtrackByIndex(stack);
                         break;
                     default:
-                        stack.add(Integer.valueOf(op[i])); //PUSH
+                        stack.add(Integer.valueOf(op[i]));
                         break;
                 }
             } catch (RuntimeException e) {
@@ -42,29 +35,15 @@ public class WordMachine {
         return stack.get(stack.size()-1);
     }
 
-    private static void sumTopmost(List<Integer> stack) {
-        Integer last = stack.get(stack.size() - 1);
-        Integer lastLast = stack.get(stack.size() - 2);
-        stack.remove(stack.size() - 1);
-        stack.remove(stack.size() - 1);
+    private static void sumTopOfMost(LinkedList<Integer> stack) {
+        Integer last = stack.pollLast();
+        Integer lastLast = stack.pollLast();
         stack.add(lastLast + last);
     }
 
-    private static void duplicateTopmost(List<Integer> stack) {
-        Integer last = stack.get(stack.size() - 1);
-        stack.add(last);
-    }
-
-    private static void removeTopmost(List<Integer> stack) {
-        Integer last = stack.get(stack.size() - 1);
-        stack.remove(last);
-    }
-
-    private static void subtrackByIndex(List<Integer> stack) {
-        Integer last = stack.get(stack.size() - 1);
-        Integer lastLast = stack.get(stack.size() - 2);
-        stack.remove(stack.size() - 1);
-        stack.remove(stack.size() - 1);
+    private static void subtrackByIndex(LinkedList<Integer> stack) {
+        Integer last = stack.pollLast();
+        Integer lastLast = stack.pollLast();
         stack.add(last - lastLast);
     }
 }
