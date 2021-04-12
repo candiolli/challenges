@@ -20,7 +20,7 @@ class LevelOrderTraversalBinaryTree {
         return left || right;
     }
 
-    // Function to print level order traversal of a given binary tree
+    // Function to print level order traversal of a given binary node
     public static void levelOrderTraversal(Node root) {
         int level = 1;
 
