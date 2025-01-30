@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class BinaryReversal {
 
     public static int binaryReversal(String str) {
+
         int val = Integer.parseInt(str);
         System.out.println(val);
         String binaryStr = Integer.toBinaryString(val);

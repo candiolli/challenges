@@ -46,7 +46,7 @@ public class CalculateInvestimentsProfitStrategyExample {
             this.service = service;
         }
 
-        public BigDecimal calcula(List<Object> investimentos) {
+        public BigDecimal calcula(List<BigDecimal> investimentos) {
             return service.calcularRetorno(investimentos);
         }
 
